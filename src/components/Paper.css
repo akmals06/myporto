@@ -1,0 +1,196 @@
+.paper-section {
+  position: relative;
+  isolation: isolate;
+  background: var(--above);
+  scroll-margin-top: 76px;
+}
+
+.paper-edge {
+  height: 68px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.paper-edge svg {
+  display: block;
+}
+
+.paper-strip {
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+}
+
+.paper-strip--gone {
+  animation: peel 1.5s cubic-bezier(.56, .04, .22, 1) forwards;
+}
+
+.paper-flap {
+  position: absolute;
+  width: 32px;
+  height: 43px;
+  top: 12px;
+  left: 0;
+  border-radius: 45% 10% 60% 20%;
+  background: linear-gradient(120deg, #f9f4e9, var(--paper) 72%);
+  box-shadow: 2px 6px 8px #0003;
+  opacity: 0;
+  transform: skewY(-13deg);
+  animation: flap 1.5s ease-in-out both;
+  pointer-events: none;
+}
+
+.paper-body {
+  background: var(--paper);
+  position: relative;
+  z-index: 1;
+}
+
+.paper-body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='95' height='95'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.20'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+/* Authentic, Clean Scrapbook Sticky Notes */
+.note {
+  position: relative;
+  display: inline-block;
+  padding: 16px 18px 14px;
+  background-color: #d4f738;
+  background-image: linear-gradient(172deg, #dcfa46 0%, #cdf526 100%);
+  color: #161615;
+  box-shadow: 0 1px 3px rgba(22, 22, 21, 0.10), 0 5px 16px rgba(22, 22, 21, 0.14);
+  border: 1px solid rgba(22, 22, 21, 0.05);
+  border-radius: 1px;
+  font-family: var(--font-hand);
+  font-size: clamp(15px, 1.4vw, 19px);
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: pre-line;
+  transform: rotate(-3deg);
+  transition: transform .24s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .24s ease;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.note-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.note--pink {
+  background-color: #f78da7;
+  background-image: linear-gradient(168deg, #fba1b8 0%, #f47f9b 100%);
+}
+
+.note--cream {
+  background-color: #faf3e1;
+  background-image: linear-gradient(170deg, #fcf6e8 0%, #f7edd4 100%);
+}
+
+.note--blue {
+  background-color: #6cc4ef;
+  background-image: linear-gradient(170deg, #7dcefa 0%, #5ab9e7 100%);
+}
+
+.note:hover {
+  transform: rotate(-1deg) translateY(-4px);
+  box-shadow: 0 8px 24px rgba(22, 22, 21, 0.20);
+}
+
+/* Authentic Semi-translucent Frosted Masking Tape */
+.tape {
+  position: absolute;
+  z-index: 10;
+  width: clamp(44px, 45%, 58px);
+  height: 16px;
+  background: linear-gradient(180deg, rgba(252, 248, 226, 0.88) 0%, rgba(240, 230, 192, 0.92) 100%);
+  background-image: repeating-linear-gradient(92deg, rgba(255, 255, 255, 0.22) 0px, rgba(255, 255, 255, 0.22) 2px, transparent 2px, transparent 6px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  clip-path: polygon(0% 12%, 3% 0%, 97% 4%, 100% 15%, 98% 85%, 96% 100%, 2% 96%, 0% 82%);
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+.tape--top, .tape:not([class*="tape--"]) {
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+}
+
+.tape--top-left {
+  top: -9px;
+  left: 12px;
+  transform: rotate(-7deg);
+}
+
+.tape--top-right {
+  top: -9px;
+  right: 12px;
+  left: auto;
+  transform: rotate(6deg);
+}
+
+/* Polaroids */
+.polaroid {
+  position: relative;
+  margin: 0;
+  background: #f7f4eb;
+  padding: 9px 9px 22px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  transform: rotate(-4deg);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.polaroid:hover {
+  transform: translateY(-7px) rotate(0deg);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+}
+
+.polaroid > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.16;
+  object-fit: cover;
+  filter: grayscale(.2);
+}
+
+.polaroid figcaption {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.polaroid > .tape {
+  top: -8px;
+}
+
+@keyframes peel {
+  0% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 100%); }
+}
+
+@keyframes flap {
+  0% { left: 0; opacity: 0; }
+  8% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: calc(100% - 34px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper-strip { display: none; }
+  .paper-flap { display: none; }
+  .note, .polaroid { transition: none; }
+}
