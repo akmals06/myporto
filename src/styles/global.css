@@ -2440,11 +2440,11 @@ button:focus-visible,
     padding-block: 16px 24px !important;
   }
 
-  /* ================= HERO SECTION MOBILE (SIDE-BY-SIDE INTEGRATED EDITORIAL COLLAGE) ================= */
+  /* ================= HERO SECTION MOBILE (SIDE-BY-SIDE 2-COLUMN LAYOUT LIKE DESKTOP) ================= */
   .hero {
     min-height: auto;
-    padding-top: 14px;
-    padding-bottom: 24px;
+    padding-top: 10px;
+    padding-bottom: 20px;
     position: relative;
     overflow: visible;
   }
@@ -2454,57 +2454,58 @@ button:focus-visible,
     display: grid !important;
     grid-template-columns: 53% 47% !important;
     column-gap: 8px !important;
-    row-gap: 14px !important;
-    align-items: end !important;
-    min-height: auto !important;
+    align-items: stretch !important;
+    min-height: clamp(340px, 86vw, 430px) !important;
   }
 
-  /* Make .hero-copy pass its children directly to .hero-grid */
+  /* Left Column: All Copy (Title, bio summary, CTA button & pink note) */
   .hero-copy {
-    display: contents !important;
+    position: relative !important;
+    z-index: 10 !important;
+    padding: 8px 0 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    width: 100% !important;
   }
 
-  /* Row 1, Column 1: Sticky note & Giant Anton Typography */
   .hero-title-container {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    align-self: end !important;
     position: relative !important;
-    margin-top: 0 !important;
+    margin-top: 4px !important;
     max-width: 100% !important;
-    padding-bottom: 4px !important;
+    padding-bottom: 2px !important;
     z-index: 3 !important;
   }
 
   .hero-crown-wrap {
     display: block !important;
     position: absolute !important;
-    top: -22px !important;
+    top: -20px !important;
     left: 2px !important;
     transform: rotate(-12deg) !important;
     z-index: 14 !important;
   }
   .hero-crown-wrap svg {
-    width: 24px !important;
-    height: 18px !important;
+    width: 22px !important;
+    height: 16px !important;
   }
 
   .headline-top {
     position: static !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 5px !important;
     display: inline-block !important;
   }
 
   .headline-top .note {
-    font-size: 10.5px !important;
-    padding: 6px 10px 5px !important;
+    font-size: 9.5px !important;
+    padding: 4px 8px 3.5px !important;
     transform: rotate(-2.5deg) !important;
     line-height: 1.15 !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12) !important;
   }
 
   .hero h1 {
-    font-size: clamp(32px, 8.8vw, 42px) !important;
+    font-size: clamp(26px, 7.2vw, 36px) !important;
     line-height: 0.94 !important;
     letter-spacing: -0.01em !important;
     margin: 0 !important;
@@ -2515,22 +2516,72 @@ button:focus-visible,
   }
 
   .hero-headline-span svg {
-    width: 18px !important;
-    height: 18px !important;
-    margin-left: 5px !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin-left: 4px !important;
   }
 
-  /* Row 1, Column 2: Ripped blue paper with Akmal's sticker cutout & doodles */
+  .hero-summary {
+    max-width: 100% !important;
+    font-size: clamp(10px, 2.6vw, 11.5px) !important;
+    line-height: 1.45 !important;
+    color: rgba(22, 22, 21, 0.88) !important;
+    margin: 6px 0 10px 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .hero-cta-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    margin-top: 2px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .hero-cta-wrap .button-solid {
+    padding: 8px 14px !important;
+    font-size: 9.5px !important;
+    letter-spacing: 0.04em !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-learning-note-wrap {
+    display: inline-block !important;
+    transform: rotate(-3deg) !important;
+    margin-left: 2px !important;
+  }
+
+  .hero-learning-note {
+    font-size: 8.5px !important;
+    padding: 5px 8px 4px !important;
+    line-height: 1.15 !important;
+  }
+
+  .hero-learning-smiley {
+    bottom: -3px !important;
+    right: -3px !important;
+  }
+  .hero-learning-smiley svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .hero-hand {
+    display: none !important;
+  }
+
+  /* Right Column: Ripped blue paper with Akmal's sticker cutout & doodles */
   .hero-art {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
     position: relative !important;
-    top: 0 !important;
-    right: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    min-height: clamp(230px, 60vw, 290px) !important;
-    max-height: 320px !important;
+    min-height: clamp(330px, 86vw, 430px) !important;
+    align-self: stretch !important;
     z-index: 2 !important;
     pointer-events: auto !important;
     overflow: visible !important;
@@ -2541,12 +2592,12 @@ button:focus-visible,
 
   .hero-blue-sheet {
     position: absolute !important;
-    top: -24px !important;
+    top: -20px !important;
     right: -8px !important;
     bottom: 0 !important;
-    left: 4px !important;
+    left: 0 !important;
     width: calc(100% + 8px) !important;
-    height: calc(100% + 24px) !important;
+    height: calc(100% + 20px) !important;
     background-color: var(--scrap-blue) !important;
     background-image: url('/assets/paper-blue.webp') !important;
     background-size: 400px !important;
@@ -2567,16 +2618,15 @@ button:focus-visible,
   }
 
   .hero-cutout {
-    position: relative !important;
+    position: absolute !important;
     bottom: 0 !important;
-    left: auto !important;
-    right: auto !important;
-    width: clamp(140px, 42vw, 185px) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: clamp(140px, 42vw, 195px) !important;
     max-width: 100% !important;
     z-index: 4 !important;
     line-height: 0 !important;
-    margin: 0 auto !important;
-    align-self: flex-end !important;
+    margin: 0 !important;
   }
 
   .hero-cutout img {
@@ -2595,21 +2645,21 @@ button:focus-visible,
     z-index: 6 !important;
   }
   .hero-floating-crown svg {
-    width: 24px !important;
-    height: 18px !important;
+    width: 22px !important;
+    height: 16px !important;
   }
 
   .hero-airplane-wrap {
     display: block !important;
     position: absolute !important;
-    top: -14px !important;
+    top: -12px !important;
     left: 6% !important;
     transform: rotate(-14deg) !important;
     z-index: 5 !important;
   }
   .hero-airplane-wrap svg {
-    width: 26px !important;
-    height: 18px !important;
+    width: 24px !important;
+    height: 16px !important;
   }
 
   .hero-untar-tag {
@@ -2620,15 +2670,15 @@ button:focus-visible,
     right: -2px !important;
     font-family: var(--font-hand) !important;
     font-weight: 700 !important;
-    font-size: 13.5px !important;
+    font-size: 13px !important;
     gap: 3px !important;
     color: var(--ink) !important;
     transform: rotate(-4deg) !important;
     z-index: 6 !important;
   }
   .hero-untar-tag svg {
-    width: 20px !important;
-    height: 12px !important;
+    width: 18px !important;
+    height: 11px !important;
   }
 
   .hero-flower-wrap {
@@ -2639,80 +2689,21 @@ button:focus-visible,
     z-index: 6 !important;
   }
   .hero-flower-wrap svg {
-    width: 26px !important;
-    height: 26px !important;
+    width: 24px !important;
+    height: 24px !important;
   }
 
   .hero-star-wrap {
     display: block !important;
     position: absolute !important;
     bottom: 8px !important;
-    right: 20px !important;
+    right: 18px !important;
     z-index: 6 !important;
     transform: rotate(18deg) !important;
   }
   .hero-star-wrap svg {
-    width: 16px !important;
-    height: 16px !important;
-  }
-
-  /* Row 2: Full-width bio text, clean typography */
-  .hero-summary {
-    grid-column: 1 / -1 !important;
-    grid-row: 2 !important;
-    max-width: 100% !important;
-    font-size: clamp(12.5px, 3.4vw, 14px) !important;
-    line-height: 1.6 !important;
-    color: rgba(22, 22, 21, 0.90) !important;
-    margin: 4px 0 0 !important;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-  }
-
-  /* Row 3: Full-width action button and pink note */
-  .hero-cta-wrap {
-    grid-column: 1 / -1 !important;
-    grid-row: 3 !important;
-    display: flex !important;
-    align-items: center !important;
-    flex-wrap: wrap !important;
-    gap: 12px !important;
-    margin-top: 4px !important;
-    margin-bottom: 6px !important;
-  }
-
-  .hero-cta-wrap .button-solid {
-    padding: 11px 20px !important;
-    font-size: 11.5px !important;
-    letter-spacing: 0.04em !important;
-  }
-
-  .hero-learning-note-wrap {
-    display: inline-block !important;
-    transform: rotate(-3deg) !important;
-    margin-left: 2px !important;
-  }
-
-  .hero-learning-note {
-    font-size: 10.5px !important;
-    padding: 8px 12px 6px !important;
-    line-height: 1.15 !important;
-  }
-
-  .hero-learning-smiley {
-    bottom: -4px !important;
-    right: -4px !important;
-  }
-  .hero-learning-smiley svg {
-    width: 18px !important;
-    height: 18px !important;
-  }
-
-  .hero-hand {
-    display: none !important;
+    width: 15px !important;
+    height: 15px !important;
   }
 
   /* About Section */
@@ -3115,27 +3106,38 @@ button:focus-visible,
   .hero-grid {
     grid-template-columns: 53% 47% !important;
     column-gap: 6px !important;
-    row-gap: 12px !important;
+    align-items: stretch !important;
+    min-height: clamp(330px, 86vw, 400px) !important;
   }
   .hero h1 {
-    font-size: clamp(28px, 8.4vw, 36px) !important;
+    font-size: clamp(24px, 7vw, 32px) !important;
     line-height: 0.94 !important;
   }
   .hero-title-container {
     max-width: 100% !important;
   }
   .hero-cutout {
-    width: clamp(130px, 44vw, 165px) !important;
+    width: clamp(130px, 42vw, 175px) !important;
   }
   .hero-summary {
     max-width: 100% !important;
-    font-size: 12.5px !important;
-    line-height: 1.55 !important;
+    font-size: 10.5px !important;
+    line-height: 1.42 !important;
     padding: 0 !important;
+    margin: 4px 0 8px !important;
   }
   .hero-cta-wrap {
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+  .hero-cta-wrap .button-solid {
+    padding: 7px 12px !important;
+    font-size: 9px !important;
+  }
+  .hero-learning-note {
+    font-size: 8px !important;
+    padding: 4px 7px 3px !important;
   }
   .portrait-polaroid {
     width: 82% !important;
@@ -3156,19 +3158,25 @@ button:focus-visible,
   .hero-grid {
     grid-template-columns: 52% 48% !important;
     column-gap: 4px !important;
+    min-height: 330px !important;
   }
   .hero h1 {
-    font-size: 26px !important;
+    font-size: 22px !important;
   }
   .hero-title-container {
     max-width: 100% !important;
   }
   .hero-cutout {
-    width: 130px !important;
+    width: 125px !important;
   }
   .hero-summary {
     max-width: 100% !important;
-    font-size: 11.5px !important;
+    font-size: 9.5px !important;
+    line-height: 1.35 !important;
+  }
+  .hero-cta-wrap .button-solid {
+    padding: 6px 10px !important;
+    font-size: 8.5px !important;
   }
   .brand {
     font-size: 20px !important;
