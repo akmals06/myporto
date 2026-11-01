@@ -1,12 +1,12 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Search } from 'lucide-react';
 import { navigasi } from '../data/site';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { ActiveNavIndicatorSvg } from './Doodles';
 
 const navIds = navigasi.map((a) => a.id);
 
-export function Navbar() {
+export function Navbar({ onOpenSearch }: { onOpenSearch?: () => void }) {
   const [buka, set_buka] = useState(false);
   const [scrolled, set_scrolled] = useState(false);
   const { activeSection, setActiveSection } = useActiveSection(navIds);
@@ -124,8 +124,21 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Right Action: Let's Talk CTA & Hamburger Button */}
+          {/* Right Action: Search Trigger, Let's Talk CTA & Hamburger Button */}
           <div className="nav-end">
+            {onOpenSearch && (
+              <button
+                type="button"
+                className="nav-search-btn"
+                onClick={onOpenSearch}
+                aria-label="Search notes"
+                title="Search notes (Ctrl+K or /)"
+              >
+                <Search size={14} aria-hidden="true" />
+                <span className="nav-search-label">SEARCH</span>
+                <span className="nav-search-shortcut" aria-hidden="true">⌘K</span>
+              </button>
+            )}
             <a
               href="#contact"
               className="talk"
@@ -148,6 +161,22 @@ export function Navbar() {
           {/* Mobile Menu Dropdown */}
           {buka && (
             <div className="mobile-menu" id="mobile-menu" role="menu">
+              {onOpenSearch && (
+                <button
+                  type="button"
+                  className="mobile-nav-link"
+                  onClick={() => {
+                    set_buka(false);
+                    onOpenSearch();
+                  }}
+                  style={{ textAlign: 'left', width: '100%' }}
+                >
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Search size={16} /> Search Notes
+                  </span>
+                  <span className="nav-search-shortcut">⌘K</span>
+                </button>
+              )}
               {navigasi.map((item) => (
                 <a
                   key={item.id}

@@ -37,6 +37,7 @@ export function Certificates() {
         <div className="cert-list cert-list-two relative">
           {sertifikat.map((item, index) => (
             <button
+              id={`cert-${item.id}`}
               className={`cert-card cert-card-${index}`}
               key={item.id}
               onClick={() => set_lihat(item)}

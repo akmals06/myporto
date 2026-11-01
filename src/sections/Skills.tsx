@@ -134,6 +134,7 @@ export function Skills() {
                   {group.skills.map((skill) => (
                     <div
                       key={skill.name}
+                      id={`skill-${skill.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                       className="skill-polaroid-tile"
                       tabIndex={0}
                       role="article"

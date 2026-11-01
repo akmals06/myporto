@@ -15,7 +15,7 @@ export function About() {
         <div className="about-portrait">
           <div className="pink-patch" />
           <Polaroid
-            src="/assets/akmal-profile.jpg"
+            src={`${import.meta.env.BASE_URL}assets/akmal-profile.jpg`}
             alt="Akmal Fadhlul Rohman Profile"
             caption="AKMAL F. R. // JAKARTA 2026"
             className="portrait-polaroid"

@@ -195,11 +195,11 @@ export function Hero() {
             <CrownDoodle width={36} height={28} color="#d5f738" />
           </div>
 
-          {/* Cutout Silhouette of Akmal in Hoodie */}
+          {/* Formal Cutout of Akmal in UNTAR Blazer */}
           <div className="hero-cutout">
             <img
-              src="/assets/akmal-hero-cutout.png"
-              alt="Akmal Fadhlul Rohman Silhouette"
+              src={`${import.meta.env.BASE_URL}assets/akmal-formal-cutout.png`}
+              alt="Akmal Fadhlul Rohman — Informatics Engineering UNTAR"
               className="sticker-cutout"
             />
           </div>

@@ -123,6 +123,7 @@ export function Projects() {
           >
             {proyek.map((item, i) => (
               <article
+                id={`project-${item.id}`}
                 className={`project-card project-card-${i}`}
                 key={item.id}
                 tabIndex={0}
