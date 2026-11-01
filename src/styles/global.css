@@ -409,13 +409,15 @@ button:focus-visible,
 }
 
 .sticker-cutout {
-  filter: drop-shadow(3px 0 0 #fff) 
-          drop-shadow(-3px 0 0 #fff) 
-          drop-shadow(0 3px 0 #fff) 
-          drop-shadow(0 -3px 0 #fff) 
-          drop-shadow(2px 2px 0 #fff) 
-          drop-shadow(-2px -2px 0 #fff) 
-          drop-shadow(0 12px 22px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(4px 0 0 #ffffff) 
+          drop-shadow(-4px 0 0 #ffffff) 
+          drop-shadow(0 4px 0 #ffffff) 
+          drop-shadow(0 -4px 0 #ffffff) 
+          drop-shadow(3px 3px 0 #ffffff) 
+          drop-shadow(-3px -3px 0 #ffffff) 
+          drop-shadow(3px -3px 0 #ffffff) 
+          drop-shadow(-3px 3px 0 #ffffff) 
+          drop-shadow(0 14px 28px rgba(0, 0, 0, 0.32));
 }
 
 .button-solid {
@@ -530,7 +532,7 @@ button:focus-visible,
 }
 
 .hero-summary {
-  max-width: 440px;
+  max-width: 380px;
   font-size: clamp(13px, 1vw, 15px);
   line-height: 1.6;
   color: rgba(22, 22, 21, 0.88);
@@ -546,12 +548,12 @@ button:focus-visible,
 
 .hero-hand {
   position: absolute;
-  right: -40px;
-  bottom: 28%;
+  right: clamp(-20px, -1.8vw, 0px);
+  bottom: 26%;
   display: flex;
   align-items: center;
   gap: 8px;
-  transform: rotate(-8deg);
+  transform: rotate(-6deg);
   z-index: 12;
 }
 
@@ -572,7 +574,7 @@ button:focus-visible,
 /* Hero Art (Right Side) */
 .hero-art {
   position: relative;
-  min-height: clamp(520px, 46vw, 680px);
+  min-height: clamp(520px, 46vw, 660px);
   align-self: stretch;
   isolation: isolate;
   overflow: visible;
@@ -581,9 +583,10 @@ button:focus-visible,
 .hero-blue-sheet {
   position: absolute;
   top: -72px;
-  right: -60px;
-  width: 110%;
-  height: 115%;
+  bottom: 0;
+  right: -50px;
+  width: 108%;
+  height: calc(100% + 72px);
   background-color: var(--scrap-blue);
   background-image: url('/assets/paper-blue.webp');
   background-size: 512px;
@@ -648,7 +651,7 @@ button:focus-visible,
 
 .hero-untar-tag {
   position: absolute;
-  top: clamp(290px, 29vw, 385px);
+  top: clamp(270px, 28vw, 360px);
   right: clamp(25px, 3.5vw, 55px);
   display: flex;
   align-items: center;
@@ -663,18 +666,27 @@ button:focus-visible,
 
 .hero-floating-crown {
   position: absolute;
-  top: clamp(55px, 7vw, 95px);
-  left: clamp(80px, 9.5vw, 135px);
+  top: 4%;
+  left: 47%;
+  transform: translateX(-50%) rotate(-12deg);
   z-index: 6;
-  transform: rotate(-14deg);
+  pointer-events: none;
 }
 
 .hero-cutout {
   position: absolute;
   bottom: 0;
-  left: clamp(35px, 4.5vw, 85px);
+  left: clamp(40px, 5.5vw, 95px);
   width: clamp(285px, 28vw, 395px);
   z-index: 4;
+  line-height: 0;
+}
+
+.hero-cutout img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
 }
 
 .hero-flower-wrap {
@@ -732,29 +744,6 @@ button:focus-visible,
   right: -6px;
   transform: rotate(8deg);
   z-index: 10;
-}
-
-.hero-airplane-wrap {
-  position: absolute;
-  top: 18px;
-  left: 22%;
-  z-index: 5;
-  transform: rotate(-12deg);
-}
-
-.hero-polaroid-arrow {
-  position: absolute;
-  top: 72px;
-  right: clamp(120px, 14vw, 175px);
-  z-index: 5;
-}
-
-.hero-floating-crown {
-  position: absolute;
-  top: 24%;
-  right: clamp(140px, 16vw, 210px);
-  z-index: 6;
-  transform: rotate(-14deg);
 }
 
 /* ================= ABOUT SECTION ================= */

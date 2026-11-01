@@ -92,7 +92,7 @@ export const proyek: Proyek[] = [
     id: 'saungriung',
     judul: 'Saung Riung Web Portal',
     subjudul: 'Komunitas Warga RT 009 / RW 002',
-    gambar: asset('assets/projects/project-saungriung.jpg'),
+    gambar: asset('assets/projects/project-saungriung.png'),
     stack: ['React', 'Vite', 'Node.js', 'Express.js', 'REST API'],
     deskripsi: 'Platform website komunitas warga RT 009 / RW 002 Koja. Menjadi pusat transparansi pengumuman lingkungan, kalender agenda gotong royong dan pertemuan warga, serta kanal komunikasi warga dengan arsitektur REST API terpisah antara frontend (React Vite) dan backend (Express Node.js) yang dideploy di Vercel.',
     github: 'https://github.com/akmals06/saungriung',

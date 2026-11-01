@@ -190,16 +190,16 @@ export function Hero() {
             <span>UNTAR</span>
           </div>
 
-          {/* Crown doodle floating near Akmal's head */}
-          <div className="hero-floating-crown" aria-hidden="true">
-            <CrownDoodle width={36} height={28} color="#d5f738" />
-          </div>
-
           {/* Formal Cutout of Akmal in UNTAR Blazer */}
           <div className="hero-cutout">
+            {/* Crown doodle floating directly above Akmal's head */}
+            <div className="hero-floating-crown" aria-hidden="true">
+              <CrownDoodle width={36} height={28} color="#d5f738" />
+            </div>
+
             <img
               src={`${import.meta.env.BASE_URL}assets/akmal-formal-cutout.png`}
-              alt="Akmal Fadhlul Rohman — Informatics Engineering UNTAR"
+              alt="Akmal Fadhlul Rohman • Informatics Engineering UNTAR"
               className="sticker-cutout"
             />
           </div>
