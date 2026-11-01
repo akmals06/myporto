@@ -2445,75 +2445,252 @@ button:focus-visible,
     min-height: auto;
     padding-bottom: 8px;
   }
+  /* ================= HERO SECTION MOBILE (INTEGRATED EDITORIAL COLLAGE) ================= */
+  .hero {
+    min-height: clamp(400px, 62vw, 470px);
+    padding-bottom: 24px;
+    overflow: hidden;
+    position: relative;
+  }
+
   .hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-height: auto;
+  }
+
+  /* Right Side: Integrated Layered Scrapbook Backdrop with Cutout */
+  .hero-art {
+    position: absolute;
+    top: -24px;
+    right: -16px;
+    width: 58%;
+    height: 100%;
+    min-height: 420px;
+    max-height: 520px;
+    z-index: 1;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .hero-blue-sheet {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--scrap-blue);
+    background-image: url('/assets/paper-blue.webp');
+    background-size: 512px;
+    border-radius: 2px;
+    clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%, 8% 72%, 2% 40%, 12% 18%);
+    box-shadow: -4px 8px 20px rgba(0, 0, 0, 0.16);
+    overflow: hidden;
+  }
+
+  .hero-city-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.2);
+    mix-blend-mode: multiply;
+    opacity: 0.52;
+  }
+
+  .hero-cutout {
+    position: absolute;
+    bottom: 0;
+    right: 6px;
+    left: auto !important;
+    width: clamp(170px, 46vw, 220px) !important;
+    max-height: none !important;
+    z-index: 4;
+    line-height: 0;
+    margin: 0;
+  }
+
+  .hero-cutout img {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+  }
+
+  .hero-floating-crown {
+    display: block !important;
+    position: absolute;
+    top: 5%;
+    left: 47%;
+    transform: translateX(-50%) rotate(-12deg);
+    z-index: 6;
+  }
+  .hero-floating-crown svg {
+    width: 26px;
+    height: 20px;
+  }
+
+  .hero-airplane-wrap {
+    display: block !important;
+    position: absolute;
+    top: 14px;
+    left: 14%;
+    transform: rotate(-14deg);
+    z-index: 5;
+  }
+  .hero-airplane-wrap svg {
+    width: 28px;
+    height: 20px;
+  }
+
+  .hero-untar-tag {
+    display: flex !important;
+    position: absolute;
+    top: auto;
+    bottom: 40%;
+    right: 4px;
+    font-family: var(--font-hand);
+    font-weight: 700;
+    font-size: 15px;
+    gap: 4px;
+    color: var(--ink);
+    transform: rotate(-4deg);
+    z-index: 6;
+  }
+  .hero-untar-tag svg {
+    width: 24px;
+    height: 14px;
+  }
+
+  .hero-flower-wrap {
+    display: block !important;
+    position: absolute;
+    bottom: 24%;
+    right: 8px;
+    z-index: 6;
+  }
+  .hero-flower-wrap svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-star-wrap {
+    display: block !important;
+    position: absolute;
+    bottom: 12px;
+    right: 28px;
+    z-index: 6;
+    transform: rotate(18deg);
+  }
+  .hero-star-wrap svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Left Side: Typography & Copy */
+  .hero-copy {
+    position: relative;
+    z-index: 3;
+    padding: 12px 0 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    min-height: auto;
-    gap: 12px;
+    justify-content: flex-start;
   }
+
+  .hero-title-container {
+    margin-top: 4px;
+    max-width: 60%;
+    position: relative;
+  }
+
+  .hero-crown-wrap {
+    display: block !important;
+    position: absolute;
+    top: -24px;
+    left: 4px;
+    transform: rotate(-12deg);
+    z-index: 14;
+  }
+  .hero-crown-wrap svg {
+    width: 28px;
+    height: 20px;
+  }
+
   .headline-top {
     position: static;
     margin-bottom: 6px;
     display: inline-block;
   }
+
   .headline-top .note {
     font-size: 11px !important;
-    padding: 5px 10px 4px !important;
-    transform: rotate(-1.5deg) !important;
+    padding: 6px 10px 5px !important;
+    transform: rotate(-2deg) !important;
+    line-height: 1.15 !important;
   }
+
   .hero h1 {
-    font-size: clamp(32px, 8.8vw, 42px) !important;
-    line-height: 0.92;
-    margin-bottom: 8px;
+    font-size: clamp(34px, 9vw, 44px) !important;
+    line-height: 0.94;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
   }
-  .hero-crown-wrap,
-  .hero-learning-note-wrap,
-  .hero-hand,
-  .hero-notes-left-wrap {
-    display: none;
-  }
+
   .hero-summary {
-    font-size: 12.5px !important;
+    max-width: clamp(230px, 62%, 280px);
+    font-size: 12px !important;
     line-height: 1.5;
-    margin-bottom: 12px;
+    color: rgba(22, 22, 21, 0.92);
+    margin-top: 6px;
+    margin-bottom: 16px;
+    background: rgba(250, 245, 235, 0.88);
+    backdrop-filter: blur(4px);
+    padding: 8px 10px;
+    border-radius: 2px;
+    border-left: 2px solid var(--ink);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
+
   .hero-cta-wrap {
-    gap: 8px;
-    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 6px;
   }
+
   .hero-cta-wrap .button-solid {
-    padding: 9px 16px;
+    padding: 10px 18px;
     font-size: 11px;
+    letter-spacing: 0.04em;
   }
-  .hero-art {
-    min-height: 240px;
-    max-height: 280px;
-    justify-content: center;
-    margin-top: 4px;
+
+  .hero-learning-note-wrap {
+    display: inline-block !important;
+    transform: rotate(-3deg);
+    margin-left: 2px;
   }
-  .hero-blue-sheet {
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+
+  .hero-learning-note {
+    font-size: 10.5px !important;
+    padding: 8px 12px 6px !important;
+    line-height: 1.15 !important;
   }
-  .hero-cutout {
-    width: 155px !important;
-    max-height: 205px !important;
-    margin: 0 auto;
+
+  .hero-learning-smiley {
+    bottom: -4px;
+    right: -4px;
   }
-  .hero-polaroid-monas {
-    width: 66px !important;
-    top: 6px !important;
-    right: 6px !important;
+  .hero-learning-smiley svg {
+    width: 18px;
+    height: 18px;
   }
-  .hero-pink-note-clean {
-    font-size: 10px !important;
-    padding: 5px 7px !important;
-    bottom: 6px !important;
-    right: 6px !important;
+
+  .hero-hand {
+    display: none;
   }
 
   /* About Section */
@@ -2917,16 +3094,16 @@ button:focus-visible,
     font-size: clamp(30px, 8.5vw, 38px) !important;
     line-height: 0.94;
   }
-  .hero-cutout {
-    width: 145px !important;
+  .hero-title-container {
+    max-width: 58%;
   }
-  .hero-polaroid-monas {
-    width: 62px !important;
-    top: 6px !important;
-    right: 6px !important;
+  .hero-cutout {
+    width: clamp(160px, 48vw, 195px) !important;
   }
   .hero-summary {
-    font-size: 12px !important;
+    max-width: clamp(200px, 58%, 240px);
+    font-size: 11.5px !important;
+    padding: 6px 8px;
   }
   .hero-cta-wrap {
     flex-wrap: wrap;
@@ -2949,10 +3126,17 @@ button:focus-visible,
 
 @media (max-width: 360px) {
   .hero h1 {
-    font-size: 30px !important;
+    font-size: 28px !important;
+  }
+  .hero-title-container {
+    max-width: 54%;
   }
   .hero-cutout {
-    width: 130px !important;
+    width: 145px !important;
+  }
+  .hero-summary {
+    max-width: 180px;
+    font-size: 10.5px !important;
   }
   .brand {
     font-size: 20px !important;
