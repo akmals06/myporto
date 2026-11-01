@@ -193,6 +193,13 @@ export function Navbar({ onOpenSearch }: { onOpenSearch?: () => void }) {
                   )}
                 </a>
               ))}
+              <a
+                href="#contact"
+                className="mobile-nav-talk"
+                onClick={(e) => handleNavClick(e, 'contact')}
+              >
+                LET'S TALK <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
             </div>
           )}
         </nav>
